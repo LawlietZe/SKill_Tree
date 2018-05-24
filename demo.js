@@ -94,3 +94,36 @@ function SpecialArray(){
 }
 var colors = new SpecialArray("red","black");
 colors.toPieString;
+//durable pattern
+function Person(name, age){
+    var o = new Object();
+    o.say = function(){
+        alert(name)
+    }
+    return o;
+}
+
+
+//JS inherit  (ˇˍˇ）
+function ProtypeZero(){
+    this.core = "solarValue";
+}
+ProtypeZero.prototype.getProtoPower = function(){
+    return this.core;
+}
+function TestModel1(){
+    this.coreShall = "metal";
+}
+TestModel1.prototype = new ProtypeZero();
+TestModel1.prototype.getProtoShell = function(){
+    return this.coreShall;
+}
+function TestModel2(){
+    this.coreShall = "wood";
+}
+TestModel2.prototype = new ProtypeZero();
+TestModel2.prototype.getProtoShell = function(){
+    return this.coreShall;
+}
+var instance1 = new TestModel1();
+var instance2 = new TestModel2();
