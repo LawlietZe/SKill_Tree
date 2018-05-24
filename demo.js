@@ -79,3 +79,18 @@ function CreateHostLevel2(id, name, type, sex){
         }
     }
 }
+
+// parasitic pattern
+function SpecialArray(){
+    //创建数组
+    var values = new Array();
+    //添加值
+    values.push.apply(values, arguments);
+    //添加方法
+    values.toPieString = function(){
+        return this.join("|");
+    }
+    return values;
+}
+var colors = new SpecialArray("red","black");
+colors.toPieString;
