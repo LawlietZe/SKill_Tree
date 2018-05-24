@@ -105,8 +105,11 @@ function Person(name, age){
 
 
 //JS inherit  (ˇˍˇ）
+
+//原型链模式继承
 function ProtypeZero(){
     this.core = "solarValue";
+    this.arr = [];
 }
 ProtypeZero.prototype.getProtoPower = function(){
     return this.core;
@@ -127,3 +130,4 @@ TestModel2.prototype.getProtoShell = function(){
 }
 var instance1 = new TestModel1();
 var instance2 = new TestModel2();
+//缺点： 共享父级属性 arr 
