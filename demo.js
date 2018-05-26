@@ -131,3 +131,15 @@ TestModel2.prototype.getProtoShell = function(){
 var instance1 = new TestModel1();
 var instance2 = new TestModel2();
 //缺点： 共享父级属性 arr 
+
+//借用构造函数
+function SuperRobot(name) {
+    this.color = ['black'];
+}
+function SubRobot() {
+    SuperRobot.call(this, "misteryMan");
+}
+var instance1 = new SubRobot();
+var instance2 = new SubRobot();
+instance1.color.push("red");
+instance2.color.push("white");
