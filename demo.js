@@ -145,7 +145,7 @@ instance1.color.push("red");
 instance2.color.push("white");
 //缺点: 没有继承父类protype
 
-//组合继承
+//组合继承(可以称为es5时代之前的继承， 远古继承法)
 function SuperRobot(name) {
     this.name    = name;
     this.friends = ['a','b','c'];
@@ -163,3 +163,43 @@ SubRobot.prototype.sayFriends = function () {
 }
 var instance1 = new SubRobot("chris", 12);
 var instance2 = new SubRobot("bill", 24);
+
+//原型式继承(需要传入一个基本共享对象)
+function object(o) {
+    function F() {};
+    F.prototype = o;
+    return new F();
+}
+var gundamPrototype = {
+    core: "RX-78",
+    union: "UAE",
+    ammon: []
+}
+var gundamOne = object(gundamPrototype);
+gundamOne.core = "solar";
+gundamOne.ammon.push("Lazer");
+var gundamTwo = object(gundamPrototype);
+gundamTwo.core = "nuclear";
+gundamTwo.ammon.push("7.62mmNATO");
+
+//ES5 规范化方法 Object.create(gundamPrototype);
+var gundamPrototype = {
+    core: "RX-78",
+    union: "UAE",
+    ammon: []
+}
+var gundamOne = Object.create(gundamPrototype);
+gundamOne.core = "solar";
+gundamOne.ammon.push("Lazer");
+var gundamTwo = Object.create(gundamPrototype);
+gundamTwo.core = "nuclear";
+gundamTwo.ammon.push("7.62mmNATO");
+
+//寄生式继承
+function creatrGundam(origin) {
+    clone = object(origin);
+    clone.fire = function() {
+        console.log("fire !!");
+    }
+    return clone;
+}
