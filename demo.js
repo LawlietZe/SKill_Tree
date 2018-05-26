@@ -143,3 +143,23 @@ var instance1 = new SubRobot();
 var instance2 = new SubRobot();
 instance1.color.push("red");
 instance2.color.push("white");
+//缺点: 没有继承父类protype
+
+//组合继承
+function SuperRobot(name) {
+    this.name    = name;
+    this.friends = ['a','b','c'];
+}
+SuperRobot.prototype.say = function () {
+    console.log("i'm " + this.name);
+}
+function SubRobot(name, age) {
+    SuperRobot.call(this, name);
+    this.age = age;
+}
+SubRobot.prototype = new SuperRobot();
+SubRobot.prototype.sayFriends = function () {
+    console.log(this.friends + " my age" + this.age);
+}
+var instance1 = new SubRobot("chris", 12);
+var instance2 = new SubRobot("bill", 24);
