@@ -203,3 +203,31 @@ function creatrGundam(origin) {
     }
     return clone;
 }
+
+//寄生组合式继承
+function inheritPrototype(subType, superType) {
+    var prototype = object(superType.prototype);
+    prototype.constructor = subType;
+    subType.prototype = prototype;    
+}
+function SuperRobot(name) {
+    this.name = name;
+    this.colors = ['red','black'];
+}
+SuperRobot.prototype.say = function() {
+    console.log(this.name);
+}
+function SubRobot(name, age) {
+    SuperRobot.call(this, name);
+    this.age = age;
+}
+inheritPrototype(SubRobot, SuperRobot);
+
+SubRobot.prototype.sayAge = function() {
+    console.log(this.age);
+}
+function object(o) {
+    function F() {};
+    F.prototype = o;
+    return new F();
+}
