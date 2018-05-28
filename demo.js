@@ -260,3 +260,26 @@ function inheritPrototype(Super, Sub){
     clone.constructor = Sub;
     Sub.prototype = clone;
 }
+
+//ES6定义类
+class gunDamProto{
+    constructor(id, name){
+        this.id = id;
+        this.name = name;
+    }
+    say(){
+        console.log(this.id + "--" + this.name);
+    }
+}
+var gundam1 = new gunDamProto("Rx-78", 001);
+class gunDamImproved extends gunDamProto{
+    constructor(id, name, weapon){
+        super(id, name);
+        this.weapon = weapon;
+    }
+    toFire(){
+        console.log(this.name +　" will fired " + this.weapon);
+        super.say();
+    }
+}
+var newgundam = new gunDamImproved(003, "Destinay", "斩舰刀");
