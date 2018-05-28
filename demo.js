@@ -234,7 +234,7 @@ function object(o) {
 }
 
 
-//Wester World II
+// 寄生组合模式案例 Wester World II
 function HostBasic(name){
     this.name = name;
     this.language = ['Chinese','Japanese'];
