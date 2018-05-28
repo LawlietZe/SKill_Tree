@@ -1,3 +1,6 @@
+// 基本类型: number, string, boolean, null, undefined  栈内存
+// 引用类型: object, array, function 堆内存
+
 // create a Object
 
 //factory pattern
@@ -14,9 +17,6 @@ function createAHost(id, name, type, sex){
 var Benard = createAHost(1, 'Benard', 'engineer', 'man');
 var Mayve = createAHost(2, 'Mayve', 'bartender', 'woman');
 //优：解决了多次构造相同对象的繁琐，差：无法判断对象的类型
-
-
-
 
 //constructor pattern  构造函数模式
 function CreateHostLevel1(id, name, type, sex){ //构造函数大写
@@ -46,7 +46,7 @@ var instant = obj;
 
 
 // prototype pattern
-// prototype , __proto__ , constructor,
+// 基本要素: prototype , __proto__ , constructor,
 //组合使用构造函数和原型
 function CreateHostLevel2(id, name, type, sex){
     this.id = id;
@@ -67,7 +67,7 @@ BenardVersion2.style = "elegant";
 // BenardVersion2.hasOwnProtery("style")
 
 
-//动态原型模式
+//动态原型模式(可读性好一点)
 function CreateHostLevel2(id, name, type, sex){
     this.id = id;
     this.name = name;
@@ -80,7 +80,7 @@ function CreateHostLevel2(id, name, type, sex){
     }
 }
 
-// parasitic pattern
+// parasitic pattern(上古偏方)
 function SpecialArray(){
     //创建数组
     var values = new Array();
@@ -94,7 +94,7 @@ function SpecialArray(){
 }
 var colors = new SpecialArray("red","black");
 colors.toPieString;
-//durable pattern
+//durable pattern(上古偏方)
 function Person(name, age){
     var o = new Object();
     o.say = function(){
@@ -143,7 +143,7 @@ var instance1 = new SubRobot();
 var instance2 = new SubRobot();
 instance1.color.push("red");
 instance2.color.push("white");
-//缺点: 没有继承父类protype
+//缺点: 没有继承父类protype 只是执行构造函数,并未继承prototype
 
 //组合继承(可以称为es5时代之前的继承， 远古继承法)
 function SuperRobot(name) {
@@ -158,6 +158,7 @@ function SubRobot(name, age) {
     this.age = age;
 }
 SubRobot.prototype = new SuperRobot();
+SubRobot.prototype.constructor = SubRobot;
 SubRobot.prototype.sayFriends = function () {
     console.log(this.friends + " my age" + this.age);
 }
@@ -230,4 +231,32 @@ function object(o) {
     function F() {};
     F.prototype = o;
     return new F();
+}
+
+
+//Wester World II
+function HostBasic(name){
+    this.name = name;
+    this.language = ['Chinese','Japanese'];
+}
+HostBasic.prototype.say = function() { 
+    console.log("Hello I'm " + this.name);
+}
+function WearedHost(name, age){
+    this.age = age;
+    HostBasic.call(this, name);
+}
+inheritPrototype(HostBasic, WearedHost);
+WearedHost.prototype.sayAge = function(){
+    console.log("I'M "+ this.age + " years old");
+}
+function object(o){
+    function Clone(){};
+    Clone.prototype = o;
+    return new Clone();
+}
+function inheritPrototype(Super, Sub){
+    var clone = object(Super.prototype);
+    clone.constructor = Sub;
+    Sub.prototype = clone;
 }
