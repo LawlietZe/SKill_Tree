@@ -22,3 +22,21 @@ console.log(1)
 
 //1
 //2
+
+*Jquery Deferred*
+function waitHandle(){
+    var dfd = $.Deferred();
+    var wait = function(dfd){
+        var task = function(){
+            console.log('parse one');
+            dfd
+        }
+        setTimeout(task,2000);
+        return dfd;
+    }
+    return wait(dfd);
+}
+var w = waitHandle();
+w.then(function(){ console("parse two")},function(){console.log("parse two failed")})
+
+
