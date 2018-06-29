@@ -1,1 +1,40 @@
+面向对象编程：关注的是数据
+函数式编程：关注的是动作
+
+定义：纯函数（如果输入结果确定，输出结果就是唯一确定的）
+eg:
+let arr = [1,2,3];
+
+arr.slice(0,3); //是纯函数
+
+arr.splice(0,3); //不是纯函数，对外有影响
+
+函数柯里化 curry
+定义：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。
+function add(x, y){
+  return x + y;
+}
+add(1, 2);
+
+柯里化后
+function addX(y){
+  return function(x){
+    return x + y;
+  }
+}
+
+eg
+function change (fn , els , color){
+    Array.from(els).map((item)=>(fn(item,color)))
+}
+柯里化后
+
+function change(fn){
+  return function(els, colors){
+    Array.from(els).map((item)=>(fn(item, color))); 
+  }
+}
+var newSelector= change(setColor);
+newSelector(oLi,"blue");
+
 
