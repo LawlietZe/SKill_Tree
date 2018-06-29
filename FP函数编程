@@ -1,7 +1,8 @@
 面向对象编程：关注的是数据
 函数式编程：关注的是动作
 
-定义：纯函数（如果输入结果确定，输出结果就是唯一确定的）
+****纯函数
+定义：如果输入结果确定，输出结果就是唯一确定的
 eg:
 let arr = [1,2,3];
 
@@ -9,7 +10,7 @@ arr.slice(0,3); //是纯函数
 
 arr.splice(0,3); //不是纯函数，对外有影响
 
-函数柯里化 curry
+****函数柯里化 curry
 定义：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。
 function add(x, y){
   return x + y;
@@ -37,4 +38,53 @@ function change(fn){
 var newSelector= change(setColor);
 newSelector(oLi,"blue");
 
+****高阶函数 
+定义：函数当参数，把传入的函数做一个封装，然后返回这个封装函数,达到更高程度的抽象
+
+自己调用函数本身的地方叫做等价函数
+function __equal__(fn){
+  return function(..args){
+    return fn.apply(this,args);
+  }
+}
+function addX(y){
+  return function(x){
+    return x + y;
+  }
+}
+var addnew1 = __equal__(add);
+console.log(add(1,2));
+console.log(addnew1(1,2));
+//第二种
+let obj = {
+  x : 1,
+  y : 2,
+  add : function (){
+    console.log(this)
+    return this.x + this.y
+  }
+}
+var addnew2 = __equal__(obj.add);
+obj.add();
+addnew2.call(obj);
+
+****节流函数 throttle
+function throttle(fn, wait){
+  var timer;
+  return function(...args){
+    if(!timer){
+      timer = setTimeout(()=>timer == null, wait);
+      return fn.apply(this, args)    
+    }
+  }
+}
+
+这里我们可以先停下来从头回顾一下，函数式编程。
+
+函数式编程，更关注的是动作，比如我们定义的节流函数，就是把节流的这个动作抽象出来。
+所以这样的函数必须要输入输出确定且对外界没有，我们把这样的函数叫纯函数
+对于不纯的函数提纯的过程中，用到了柯里化的方法。
+我们柯里化过程中，我们传进去的参数恰恰是一个函数，返回的也是一个函数，这就叫高阶函数。
+高阶函数往往能抽象写出像节流这样的功能函数。
+声明式就是在使用这些功能函数
 
