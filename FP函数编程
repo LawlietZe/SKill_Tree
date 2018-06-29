@@ -88,3 +88,22 @@ function throttle(fn, wait){
 高阶函数往往能抽象写出像节流这样的功能函数。
 声明式就是在使用这些功能函数
 
+**** 纯函数可以进行合并(compose)
+function double(x) {
+    return x * 2
+}
+
+function add5(x) {
+    return x + 5
+}
+double(add5(1))
+
+var compose = function(f, g){
+  return function(x){
+    return f(g(x))
+  }
+}
+var combinefn = compose(app,double);
+combinefn(1);
+
+
