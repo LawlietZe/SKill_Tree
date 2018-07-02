@@ -23,6 +23,8 @@ function addX(y){
     return x + y;
   }
 }
+var newadd = addX(2);
+newadd(1)
 
 eg
 function change (fn , els , color){
@@ -78,6 +80,17 @@ function throttle(fn, wait){
     }
   }
 }
+btn.onclick = throttle(fn , 5000);
+
+****命令式，声明式。
+//命令式
+var array = [1,2,3];
+for (i=0; i<array.length;i++){
+console.log(array[i])
+}
+
+//声明式
+array.forEach((i) => console.log(i))
 
 这里我们可以先停下来从头回顾一下，函数式编程。
 
@@ -106,4 +119,34 @@ var compose = function(f, g){
 var combinefn = compose(app,double);
 combinefn(1);
 
-
+**** 函子
+class Functor{
+  constructor(val){
+    this.value = val;
+  }
+  map(fn){
+    return Functor.of(fn(this.value))
+  }
+  add5(value){
+    return value + 5;
+  }
+  double(value) {
+    return value * 2;
+  }  
+}
+Functor.of = function(val){
+  return new Functor(val);
+}
+function add5(value){
+  return value + 5;
+}
+function double(value) {
+  return value * 2;
+}
+var num = new Num(2);
+num.map(add5).map(double)
+Functor是一个容器，它包含了值，就是this.value.(想一想你最开始的new Num(5))
+Functor具有map方法。该方法将容器里面的每一个值，映射到另一个容器。（想一想你在里面是不是new Num(fn(this.value)）
+函数式编程里面的运算，都是通过函子完成，即运算不直接针对值，而是针对这个值的容器----函子。(想一想你是不是没直接去操作值)
+函子本身具有对外接口（map方法），各种函数就是运算符，通过接口接入容器，引发容器里面的值的变形。（说的就是你传进去那个函数把this.value给处理啦）
+函数式编程一般约定，函子有一个of方法，用来生成新的容器。（就是最后咱们整理了一下函数嘛）
