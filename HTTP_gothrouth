@@ -31,3 +31,8 @@ ARP协议可以找到同一子网下的mac地址，如果两台主机不在同�
 5.实体层(physical laye)： 把电脑链接起来的物理手段。规定的是物理的电气特性，传输0,1电信号。
 
 每一层为了实现一个功能
+
+参考：
+http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html 
+http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html
+阮一峰
