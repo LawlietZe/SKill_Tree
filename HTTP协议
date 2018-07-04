@@ -73,8 +73,75 @@ http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html
 
 -------------------------------------------------------
 HTTP协议 （基于TCP/IP协议的应用层协议）默认走80端口，用来规定客户端和服务器之间的通信格式。
-client  <----> server
+client[Web Browser]  <----HTTP Protocol---> server[HTTP Server]
+所有www文件都必须遵守这个标准(world wide web)所有页面
+Web服务器: Apache, IIS, Nginx
+HTTP三个特性：1.HTTP是无连接的，请求完毕后即断开 2.HTTP是媒体独立的，客户端服务器端只要MIMIE-TYPE互相知道如何处理就可以传输任何类型的数据
+3.HTTP是无状态的
 
+客户端请求消息的格式：
+1.请求行 request line
+2.请求头部 header
+3.空行
+4.请求数据
+
+举例子：
+GET /hello.txt HTTP/1.1
+User-Agent: curl/7.16.3 libcurl/7.16.3 OpenSSL/0.9.7l zlib/1.2.3
+Host: www.example.com
+Accept-Language: en, mi
+
+服务器响应消息
+1.状态行
+2.消息报头
+3.空行
+4.响应正文
+
+举例子：
+HTTP/1.1 200 OK
+Date: Mon, 27 Jul 2009 12:28:53 GMT
+Server: Apache
+Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT
+ETag: "34aa387-d-1568eb00"
+Accept-Ranges: bytes
+Content-Length: 51
+Vary: Accept-Encoding
+Content-Type: text/plain
+
+请求方法
+GET
+HEAD
+POST
+PUT
+DELETE
+CONNECT
+OPTIONS
+TRACE
+
+响应头信息
+Allow： 服务器支持的方法
+Content-Encoding: 文档的编码encode方式
+Content-length: 内容长度
+Content-type: 标示后面的文档属于什么MIME类型，默认text/plain
+一般表单采用的是 application/x-www-form-urlencoded ，传递过去是 键值对
+流行采用  application/json， 告诉服务器传递过去的json是序列化的  '{"a":"123"}'
+[注意]
+ajax 中的data-type表示请求需要的数据类型 体现在Request Header中的 Accept中, content-type：对应告诉是服务器传递过去的数据是什么类型的
+同样对应Requset Header中的 Content-Type 
+
+HTTP状态码
+200-请求成功
+301-资源被转移
+404-资源不存在
+500-内部服务器错误
+
+HTTP状态码分类
+分类	分类描述
+1**	信息，服务器收到请求，需要请求者继续执行操作
+2**	成功，操作被成功接收并处理
+3**	重定向，需要进一步的操作以完成请求
+4**	客户端错误，请求包含语法错误或无法完成请求
+5**	服务器错误，服务器在处理请求的过程中发生了错误
 
 
 
