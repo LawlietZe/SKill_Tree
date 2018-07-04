@@ -66,3 +66,22 @@ ARP协议可以找到同一子网下的mac地址，如果两台主机不在同�
 http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html 
 http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html
 阮一峰
+
+
+
+
+
+-------------------------------------------------------
+HTTP协议 （基于TCP/IP协议的应用层协议）默认走80端口，用来规定客户端和服务器之间的通信格式。
+client  <----> server
+
+
+
+
+
+
+
+
+
+
+
