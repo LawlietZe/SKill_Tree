@@ -1,1 +1,11 @@
 https://www.zhihu.com/question/28557115
+通俗来讲
+url表示资源
+
+HTTP 操作类型表示操作：
+GET表示获取
+POST表示新增
+PUT表示修改
+DELETE表示删除
+
+http状态码 表示请求状态
