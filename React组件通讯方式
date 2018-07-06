@@ -1,0 +1,75 @@
+// 该例子主要对各组件的 componentDidMount 进行改造，其余部分一致
+import {createStore} from 'redux'
+
+function reducer(state = {}, action) {
+  return action;
+}
+
+let store = createStore(reducer);
+
+class Child_1 extends Component{
+  componentDidMount() {
+    setTimeout(() => {
+      store.dispatch({
+        type: 'child_2',
+        data: 'hello'
+      })
+    }, 1000);
+
+    setTimeout(() => {
+      store.dispatch({
+        type: 'child_2_1',
+        data: 'bye'
+      })
+    }, 2000);
+  }
+}
+
+class Child_2 extends Component{
+  state = {
+    msg: 'start'
+  };
+  
+  componentDidUpdate() {
+    console.log('Child_2 update', store.getState());
+  }
+
+  componentDidMount() {
+    store.subscribe(() => {
+      let state = store.getState();
+      if (state.type === 'child_2') {
+        this.setState({
+          msg: state.data
+        });
+      }
+    });
+  }
+}
+
+class Child_2_1 extends Component{
+  state = {
+    msg: 'start'
+  };
+	
+  componentDidUpdate() {
+    console.log('Child_2_1 update', store.getState());
+  }
+
+
+  componentDidMount() {
+    store.subscribe(() => {
+      let state = store.getState();
+      if (state.type === 'child_2_1') {
+        this.setState({
+          msg: state.data
+        });
+      }
+    });
+  }
+
+  render() {
+    return <div>
+      <p>child_2_1 component: {this.state.msg}</p>
+    </div>
+  }
+}
