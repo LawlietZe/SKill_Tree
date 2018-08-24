@@ -1,0 +1,2 @@
+props (parent -> child)
+emit  (child -> parent)
