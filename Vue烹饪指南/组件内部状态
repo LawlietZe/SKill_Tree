@@ -1,0 +1,4 @@
+数据源分为三部分: prop, date, computed三大类
+prop是继承内部
+data是自身的环境，不允许data之间互相引用
+computed是基于data的变种加强
