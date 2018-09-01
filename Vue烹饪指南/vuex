@@ -1,0 +1,6 @@
+1.state只存在一个实例，通过注册store来实现vue应用的全局都可以访问
+2.getter仅用来处理，需要加工输出的数据
+3.一个store里的state只能由 mutation来进行改变，mutation包含一个type 和 handler, mutation仅仅负责执行同步任务
+4.action,为了解决mutation不支持异步的问题，action 中通过promise可以实现复杂的异步操作，action通过commit执行mutation
+5.module申明可以更好的组织代码，申明相对应的namespace
+3.可以使用mapState, mapGetter, mapMutation 等来实现简写
