@@ -4,3 +4,7 @@
 4.action,为了解决mutation不支持异步的问题，action 中通过promise可以实现复杂的异步操作，action通过commit执行mutation
 5.module申明可以更好的组织代码，申明相对应的namespace
 3.可以使用mapState, mapGetter, mapMutation 等来实现简写
+
+几个基本操作
+ this.$store.commit('updateToolBarStatus', true)
+ this.$store.state.xx.xx
