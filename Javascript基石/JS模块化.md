@@ -1,18 +1,19 @@
-fix!!!:
-1. CommonJS
+1.  CommonJS
 NodeJS是CommonJS规范的实现，webpack 也是以CommonJS的形式来书写
 
-2. AMD( define, require([module], callback) )
+2.  AMD( define, require([module], callback) )
 浏览器端的模块，不能采用"同步加载"（synchronous），只能采用"异步加载"（asynchronous）。这就是AMD规范诞生的背景。
 (require.js和curl.js。)
 
-3.CMD( sea.js)
+3.  CMD( sea.js)
 
-4.ES6 Module
+4.  ES6 Module
 (import, export)
 
 
 
+----------------------------
+bug:
 
 1.Webpack遵循标准 CMD
 特征 import export  
