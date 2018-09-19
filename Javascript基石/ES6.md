@@ -56,6 +56,7 @@ export const name = 'RainBow'
 const name = 'why';
 const age  = 24;
 export{name, age}
+export default sex = 'male'
 ```
 导出函数 
 
@@ -65,10 +66,10 @@ export function myModule(someArgs){
  return someArg
 }
 ```
-####导入(import)
+#### 导入(import)
 定义好的模块输出以后可以在另外一个模块import引用
 import {myModule} from 'myModule';
-import {name, age} from
+import sex, {name, age} from 'test'
 
 >心得:一条import 语句可以同时导入默认函数和其它变量。import defaultMethod, { otherMethod } from 'xxx.js';
 
