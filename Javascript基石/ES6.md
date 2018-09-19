@@ -42,6 +42,37 @@
    console.log(cat instanceof Cat); // true
    console.log(cat instanceof Animal); // true
 ```
+### 2.模块化
+####导出(export)
+导出变量 
+
+``` javascript
+export const name = 'RainBow'
+```
+可以同时输出多个变量 
+
+``` javascript
+//test.js
+const name = 'why';
+const age  = 24;
+export{name, age}
+```
+导出函数 
+
+``` javascript
+//myModule.js
+export function myModule(someArgs){
+ return someArg
+}
+```
+####导入(import)
+定义好的模块输出以后可以在另外一个模块import引用
+import {myModule} from 'myModule';
+import {name, age} from
+
+>心得:一条import 语句可以同时导入默认函数和其它变量。import defaultMethod, { otherMethod } from 'xxx.js';
+
+
 
 
 ### let const
