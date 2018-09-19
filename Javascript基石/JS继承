@@ -62,7 +62,7 @@ CreateHostLevel2.prototype = {
 }
 var BenardVersion2 = new CreateHostLevel2(0001, 'Benard', 'engineer', 'man');
 var MayveVersion2 = new CreateHostLevel2(0002, 'Mayve', 'bartender', 'woman');
-//  Object.getPrototypeOf(BenardVersion2) == BenardVersion2.__protp__ == CreateHostLevel2.prototype
+//  Object.getPrototypeOf(BenardVersion2) == BenardVersion2.__proto__ == CreateHostLevel2.prototype
 BenardVersion2.style = "elegant";
 // BenardVersion2.hasOwnProtery("style")
 
@@ -135,6 +135,7 @@ var instance2 = new TestModel2();
 //借用构造函数
 function SuperRobot(name) {
     this.color = ['black'];
+    this.name;
 }
 function SubRobot() {
     SuperRobot.call(this, "misteryMan");
