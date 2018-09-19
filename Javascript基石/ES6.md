@@ -12,7 +12,7 @@
 
 ### 1.类(class)  
 作用是使面向对象更简单和利于理解
-```avascript
+``` javascript
   class Animal{
     // 构造函数，实例化的时候将会被调用，如果不指定，那么会有一个不带参数的默认构造函数.
     constructor(name, color){
