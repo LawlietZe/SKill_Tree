@@ -241,3 +241,92 @@ console.log(student);//{name: "Ming", age: "18", city: "Shanghai"}
 ### 10.let const
 let只在对应上下文中存在
 const不允许修改
+
+---
+## ES7 特性
+### 1.Array.prototype.includes()
+判断一个数组是否包含指定的值
+```
+let arr = [1,2,3];
+arr.includes(1)
+//true
+```
+### 2.指数操作符(**)
+```
+console.log(2**10)
+//1024
+```
+
+---
+## ES8新特性
+### 1.async/wait
+异步函数，解决回调问题
+```javascript
+login(username){
+return new Promise((resolve,reject)=>{
+  setTimeout(()=>{
+    resolve('1000');
+  },600)
+})
+}
+
+getData(userId){
+  return new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+       resolve('sucess')
+      })
+
+  })
+}
+
+//不使用asyn/await
+doLogin(username){
+  this.login(username)
+  .then(val=>this,getData(val))
+  .then(result=>{
+    console.log(result)
+  })
+}
+
+//使用async/await
+async doLogin(username){
+ const userId = await this.login(username);
+ const result = await this.getData(userId)
+ console.log(result)
+}
+
+```
+---
+```
+async function charCountAdd(data1,data2){
+  const d1 = await chartCount(data1);
+  const d2 = await chartCount(data2);
+  return d1+d2;
+}
+function chartCount(data){
+return new Promise((resolve,reject)=>{
+ setTimeout(() => {
+      resolve(data.length);
+    }, 1000);
+})
+}
+//在并发下使用
+async function chartCountAdd(data1, data2){
+ const [d1,d2] = await Promise.all([charCount(data1),charCount(data2)]);
+ return d1+d2
+}
+function charCount(data) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(data.length);
+        }, 1000);
+    });
+}
+```
+### 2.Object.values()
+
+Object.values()可以获取对象的所有value，作为数组表达出来
+Object.keys 讲获取对象所有key，作为数组表达出来
+
+
+
