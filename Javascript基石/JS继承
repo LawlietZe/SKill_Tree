@@ -4,6 +4,7 @@
 // create a Object
 
 //factory pattern
+``` javascript
 function createAHost(id, name, type, sex){
     var o = new Object();
     o = {
@@ -283,3 +284,4 @@ class gunDamImproved extends gunDamProto{
     }
 }
 var newgundam = new gunDamImproved(003, "Destinay", "斩舰刀");
+```
