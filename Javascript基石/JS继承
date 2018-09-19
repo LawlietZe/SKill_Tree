@@ -4,7 +4,7 @@
 // create a Object
 
 //factory pattern
-``` javascript
+```javascript
 function createAHost(id, name, type, sex){
     var o = new Object();
     o = {
