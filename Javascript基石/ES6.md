@@ -238,5 +238,6 @@ console.log(student);//{name: "Ming", age: "18", city: "Shanghai"}
 ```
 
 
-### let const
+### 10.let const
 let只在对应上下文中存在
+const不允许修改
