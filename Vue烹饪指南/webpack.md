@@ -1,3 +1,10 @@
+### requireJS 模块化解决方式和 webpack之间的差异
+特性|requireJS|webpack
+---|:--:|:---:
+javascript|支持AMD模块化，异步的实现按需加载, 没有js合并| 支持AMD 和 CommonJS，同时做到js资源的合并
+扩展内容|可以用提供r.js实现js资源加载,但是需要搭配gulp做进一步的js处理，仅仅是提供js模块化|可以提供各种loader，可以一次性在打包的时候实现babel等转化
+css|不支持css的模块化，需要搭配gulp进行处理|支持各种文件的打包，all in js
+
 本质上，webpack是一个现代javascript应用程序的静态模块打包器(module bundler)，根据依赖关系dependency graph讲模块打包成一个或者多个bundle.
 webpack4.0，无具体配置 
 ### entry
