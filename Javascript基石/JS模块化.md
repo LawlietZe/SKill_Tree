@@ -1,7 +1,7 @@
-1.  CommonJS
+1.  CommonJS (require. export)
 NodeJS是CommonJS规范的实现，webpack 也是以CommonJS的形式来书写,Webpack支持打包 amd & commonJS的文件
 
-2.  AMD( define, require([module], callback) )
+2.  AMD(require([module], callback) ,define)
 浏览器端的模块，不能采用"同步加载"（synchronous），只能采用"异步加载"（asynchronous）。这就是AMD规范诞生的背景。
 (require.js和curl.js。)
 
