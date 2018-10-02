@@ -1,4 +1,5 @@
 ### box formatting context
+摘自: (前端精选文摘：BFC 神奇背后的原理)[http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html]
 
 #### box  
 box 是css布局的基本单位，页面是由各种box所组成的，每个box里面，有其自身的formatting context(决定如何渲染内部的box)
