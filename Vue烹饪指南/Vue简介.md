@@ -1,5 +1,6 @@
 # Vue初体验
- >于2018年10月12日 SAFS @why
+ >于2018年10月12日 SAFS @why 
+ 
 ![vue](https://cdn-images-1.medium.com/max/1600/1*xRP8aiNiS-Qw1aXdFgrtAw.jpeg)
 ## 1.MVC / MVVM
 从MVC 到 MVVM
