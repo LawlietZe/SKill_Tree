@@ -1,5 +1,5 @@
 # Vue初体验
-![vue](https://cli.vuejs.org/favicon.png)
+![vue](https://upload.wikimedia.org/wikipedia/commons/5/53/Vue.js_Logo.svg)
 ## 1.MVC / MVVM
 [图示](http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html)
 ## 2.什么是Vue
