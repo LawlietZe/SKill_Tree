@@ -1,5 +1,6 @@
 # Vue初体验
-![vue](https://upload.wikimedia.org/wikipedia/commons/5/53/Vue.js_Logo.svg)
+2018年10月12日
+![vue](https://cdn-images-1.medium.com/max/1600/1*xRP8aiNiS-Qw1aXdFgrtAw.jpeg)
 ## 1.MVC / MVVM
 [图示](http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html)
 ## 2.什么是Vue
