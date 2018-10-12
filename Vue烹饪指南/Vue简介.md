@@ -1,4 +1,3 @@
-[toc]
 # Vue初体验
 ## 1.MVC / MVVM
 ## 2.什么是Vue
