@@ -152,6 +152,14 @@ Functor具有map方法。该方法将容器里面的每一个值，映射到另�
 函数式编程一般约定，函子有一个of方法，用来生成新的容器。（就是最后咱们整理了一下函数嘛）
 
 
-compose合成:
+compose合成器:
 
 const compose = (...fns)=> (arg)=> fns.reduce(composed, f) => f(composed),arg)
+const f1 = (number)=> number+10
+const f2 = (number)=> number+20
+const combine = composer(f1,f2);
+combine(5)
+//37
+
+
+
