@@ -32,7 +32,8 @@ class App extends Component {
 ```javascript
 //title.js
 class Title extends Component {
-  //任意深度的子组件都可以通过 contextTypes 来声明你想要的 context 里面的哪些状态，然后可以通过 this.context 访问到那些状态
+  //任意深度的子组件都可以通过 contextTypes 来声明你想要的 context 里面的哪些状态，
+  //然后可以通过 this.context 访问到那些状态
   static childContextType = {
     themeColor: PropTypes.string
   }
@@ -45,16 +46,17 @@ class Title extends Component {
 
 ```
 ```javascript
-//context.js
-class Title extends Component {
-  static childContextType = {
-    themeColor: PropTypes.string
-  }
-  render(){
-    return (
-      <h1 style={{ color: this.context.themeColor }}>React.js 小书标题</h1>
-    )
-  }
+//content.js
+import React, { Component } from 'react';
+class Content extends Component {
+    render () {
+        return (
+        <div>
+            <h2>this is 内容</h2>
+        </div>
+        )
+    }
 }
+export default Content;
 
 ```
