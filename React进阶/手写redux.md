@@ -1,3 +1,6 @@
+参考：
+[跟着例子一步步学习redux+react-redux](https://segmentfault.com/a/1190000012976767#articleHeader10)
+
 ### React.js的context  
 context 打破了组件和组件之间通过 props 传递数据的规范，极大地增强了组件之间的耦合性。而且，就如全局变量一样，context 里面的数据能被随意接触就能被随意修改，每个组件都能够改 context 里面的内容会导致程序的运行不可预料。
 
