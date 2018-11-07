@@ -1,4 +1,4 @@
-### whatIwannaLearn in NetCircle
+### whatIwannaLearn 
 ## 技术
 1. React的熟练到进阶, 全家桶
 2. SSR服务端渲染
@@ -9,3 +9,7 @@
 ## 软技能
 1. 英语
 
+## 关注点
+1. 开发流程(DevOps/ alige)
+2. 发布流程
+3. 开发环境(操作系统, 文本编辑器，插件，代码管理仓库)
