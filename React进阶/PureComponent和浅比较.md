@@ -21,7 +21,7 @@ function is(x, y){
 
 
 ```
-(采样)[https://www.imweb.io/topic/598973c2c72aa8db35d2e291]
+[采样](https://www.imweb.io/topic/598973c2c72aa8db35d2e291)
 
 ```
 在解析shallowEqual的源码之前，先来认识一下Object.is()，这个函数是用来比较两个值是否相等。
