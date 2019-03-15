@@ -71,3 +71,27 @@ export default control(MyComponent)
     }
   }
 ```
+#### 页面权限管理
+可以通过HOC对组件进行包裹，当跳转到当前页面的时候，检查用户是否含有对应的权限。如果有的话，渲染页面。如果没有的话，跳转到其他页面(比如无权限页面，或者登陆页面)。
+
+### HOC 注意事项
+#### 不要随意修改props
+
+#### Ref无法获取想要的ref
+
+#### Component上绑定的static方法丢失 
+
+比如，你原来在Component上面绑定了一些static方法MyComponent.staticMethod = o=>o。但是由于经过HOC的包裹，父级组件拿到的已经不是原来的组件了，所以当然无法获取到staticMethod方法了。  
+这里有一个解决方法，就是hoist-non-react-statics组件，这个组件会自动把所有绑定在对象上的非React方法都绑定到新的对象上：
+```javascript
+  import hoistNonReactStatic from 'hoist-non-react-statics';
+  function enhance(WrappedComponent) {
+    class Enhance extends React.Component {/*...*/}
+    hoistNonReactStatic(Enhance, WrappedComponent);
+    return Enhance;
+  }
+```
+
+
+
+
