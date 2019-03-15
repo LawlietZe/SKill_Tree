@@ -45,5 +45,29 @@ function HOCFactory(WrappedComponent){
     }
   }
 }
+---------- 这样在组件里就可以使用
+class MyComponent extends React.Component {
+  render(){
+    return (<div>{this.props.message}</div>)
+  }
+}
+export default control(MyComponent)
+```
 
+#### 渲染劫持
+这里的渲染劫持并不是你能控制它渲染的细节，而是控制是否去渲染。由于细节属于组件内部的render方法控制，所以你无法控制渲染细节。
+
+比如，组件要在data没有加载完的时候，现实loading...，就可以这么写：这个样子，在父级没有传入data的时候，这一块儿就只会显示loading...,不会显示组件的具体内容
+
+```javascript
+  function loading(WrappedComponent){
+    return class Loading extends React.Component{
+      render(){
+        if(!this.props.data){
+          return <div>loading</div>
+        }
+        return <WrappedComponent {...props} />
+      }
+    }
+  }
 ```
