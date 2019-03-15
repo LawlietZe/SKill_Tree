@@ -17,9 +17,32 @@ HOC不仅仅是一个方法，确切说应该是一个组件工厂，获取低�
 ```javascript
 function HOCFactory(WrappedComponent){
   return HOC extends React.component{
-    render(
-      <WrapperComponent {...this.props} />
-    )
+    render(){
+      return <WrapperComponent {...this.props} />
+    }
+  }
+}
+
+```
+
+### HOC可以做什么
+1. 代码复用（替代mixin）
+2. 增删改props
+3. 渲染劫持 
+劫持，由于传入的wrappedComponent是作为一个child进行渲染的，上级传入的props都是直接传给HOC的，所以HOC组件拥有很大的权限去修改props和控制渲染。
+
+#### 增删改props
+例如要增加一个公共性props
+```javascript
+function HOCFactory(WrappedComponent){
+  return HOC extends React.component{
+    render(){
+      let props = {
+        ...this.props,
+        message: "a common string"
+      }
+      <WrapperComponent {...props} />
+    }
   }
 }
 
