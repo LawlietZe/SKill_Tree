@@ -34,5 +34,6 @@ function ExampleWithManyStates() {
 }
 
 ```
+### Effect Hook
 
 
