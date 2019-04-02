@@ -35,5 +35,53 @@ function ExampleWithManyStates() {
 
 ```
 ### Effect Hook
+useEffect可以使函数组件拥有生命周期的方法
+useEffect会在每次render的时候执行，包括在第一次render
+```javascript
+import React, { useState, useEffect } from 'react';
 
+function Example() {
+  const [count, setCount] = useState(0);
 
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+
+```
+Effects通过使用return 可以在函数组件unmount的状态里执行一些方法
+```javascript
+import React, { useState, useEffect } from 'react';
+
+function FriendStatus(props) {
+  const [isOnline, setIsOnline] = useState(null);
+
+  function handleStatusChange(status) {
+    setIsOnline(status.isOnline);
+  }
+
+  useEffect(() => {
+    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+
+    return () => {
+      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
+    };
+  });
+
+  if (isOnline === null) {
+    return 'Loading...';
+  }
+  return isOnline ? 'Online' : 'Offline';
+}```
+\
