@@ -61,5 +61,30 @@ Math.max(...arr)
 ```
 let trueArr = Array.prototype.slice.call(arrayLike)
 ```
+### 判断数据类型
+```
+function isArray(obj){
+    return Object.prototype.toString.call(obj) == '[object Array]'
+}
+isArray([]) // true
+isArray('dot') // false
+```
+
+### 实现继承
+
+```
+function Person(name,age){
+    // 这里的this都指向实例
+    this.name = name
+    this.age = age
+    this.sayAge = function(){
+        console.log(this.age)
+    }
+}
+function Female(){
+    Person.apply(this,arguments)//将父元素所有方法在这里执行一遍就继承了
+}
+let dot = new Female('Dot',2)
+```
 
 
