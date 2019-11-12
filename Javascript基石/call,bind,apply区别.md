@@ -30,3 +30,23 @@ call、apply的区别
 
 
 他们俩之间的差别在于参数的区别，call和apply的第一个参数都是要改变上下文的对象，而call从第二个参数开始以参数列表的形式展现，apply则是把除了改变上下文对象的参数放在一个数组里面作为它的第二个参数。
+
+### 应用场景1 拼接数组
+```
+let arr1 = [1,2,3];
+let arr2 = [4,5,6];
+
+//数组的concat方法：返回一个新的数组
+let arr3 = arr1.concat(arr2); 
+console.log(arr3); // [1, 2, 3, 4, 5, 6]
+
+console.log(arr1); // [1, 2, 3] 不变
+console.log(arr2); // [4, 5, 6] 不变
+// 用 apply方法
+[].push.apply(arr1, arr2)
+console.log(arr1); // [1, 2, 3, 4, 5, 6]
+console.log(arr2); // 不变
+
+```
+
+
