@@ -57,7 +57,7 @@ Math.max.call(null, ...arr)
 Math.max(...arr)
 ```
 
-###
+### 类数组转化为数组
 ```
 let trueArr = Array.prototype.slice.call(arrayLike)
 ```
