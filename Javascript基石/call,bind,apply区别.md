@@ -46,7 +46,20 @@ console.log(arr2); // [4, 5, 6] 不变
 [].push.apply(arr1, arr2)
 console.log(arr1); // [1, 2, 3, 4, 5, 6]
 console.log(arr2); // 不变
+```
+### 应用场景2 求数组中最值
+```
+let arr = [3,45,21,5,88]
+Math.max.apply(null, arr)
+Math.min.apply(null, arr)
+或者
+Math.max.call(null, ...arr)
+Math.max(...arr)
+```
 
+###
+```
+let trueArr = Array.prototype.slice.call(arrayLike)
 ```
 
 
