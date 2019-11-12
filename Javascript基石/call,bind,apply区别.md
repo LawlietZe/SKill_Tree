@@ -1,4 +1,4 @@
-
+```
   let obj = {name: 'tony'};
   
   function Child(name){
@@ -19,7 +19,7 @@
   child.showName.apply(obj);
   let bind = child.showName.bind(obj); // 返回一个函数
   bind(); // tony
-
+```
 call、apply与bind的差别
 
 
