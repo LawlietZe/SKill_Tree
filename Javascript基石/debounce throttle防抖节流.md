@@ -1,7 +1,8 @@
 https://www.cnblogs.com/fsjohnhuang/p/4147810.html
 
 
-debounce应用场景：Input连续输入
+debounce应用场景：Input连续输入   
+```
 /**
 * 空闲控制 返回函数连续调用时，空闲时间必须大于或等于 idle，action 才会执行
 * @param idle   {number}    空闲时间，单位毫秒
@@ -19,8 +20,9 @@ var debounce = function(idle, action){
     }, idle)
   }
 }
-
-throttle : resize
+```
+throttle : resize . 
+```
 /**
 * 频率控制 返回函数连续调用时，action 执行频率限定为 次 / delay
 * @param delay  {number}    延迟时间，单位毫秒
@@ -38,3 +40,4 @@ var throttle = function(delay, action){
     }
   }
 }
+```
