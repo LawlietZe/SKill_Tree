@@ -2,7 +2,7 @@ https://www.cnblogs.com/fsjohnhuang/p/4147810.html
 
 
 debounce应用场景：Input连续输入   
-```
+```js
 /**
 * 空闲控制 返回函数连续调用时，空闲时间必须大于或等于 idle，action 才会执行
 * @param idle   {number}    空闲时间，单位毫秒
