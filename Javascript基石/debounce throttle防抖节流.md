@@ -11,13 +11,10 @@ debounce应用场景：Input连续输入
 */
 debounce(idle,action)
 var debounce = function(idle, action){
-  var last;
-  return function(){
-    var ctx =this, args = arguments;
-    clearTimeout(last)
-    last = setTimeout(function(){
-      action.apply(ctx, args)
-    }, idle)
+  let timer = null
+  return function(...args) {
+    if(timer) clearTimeout(timer)
+    timer = setTimeout(()=> { fn.apply(this, args) }, wait)
   }
 }
 ```
