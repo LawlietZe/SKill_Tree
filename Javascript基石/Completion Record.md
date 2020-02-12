@@ -10,5 +10,5 @@ JavaScript 正是依靠语句的 Completion Record 类型，方才可以在语�
   console.log(i) //normal, undefined, empty
 } // normal, undefined, empty
 ```
-
+![img](https://static001.geekbang.org/resource/image/98/d5/98ce53be306344c018cddd6c083392d5.jpg)
 ![img](https://static001.geekbang.org/resource/image/77/d3/7760027d7ee09bdc8ec140efa9caf1d3.png)
