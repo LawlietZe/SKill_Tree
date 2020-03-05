@@ -1,7 +1,10 @@
 https://www.cnblogs.com/fsjohnhuang/p/4147810.html
 
 
-debounce应用场景：Input连续输入   
+debounce应用场景：Input连续输入     
+输入搜索联想，用户在不断输入值时，用防抖来节约请求资源。  
+按钮点击:收藏,点赞,心标等
+
 ```js
 /**
 * 空闲控制 返回函数连续调用时，空闲时间必须大于或等于 idle，action 才会执行
