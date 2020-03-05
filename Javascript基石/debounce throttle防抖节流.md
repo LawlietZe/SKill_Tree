@@ -6,7 +6,7 @@ debounce应用场景：Input连续输入
 按钮点击:收藏,点赞,心标等
 
 ```js
-定时器版本
+定时器版本，使用箭头函数可以省略绑定this的过程
 var debounce = function(fn, delay) {
  let time = null;
  return function(...args) {
@@ -25,8 +25,8 @@ input.oninput = debounce((e) => {
 ```
 throttle : resize . 
 ```js
+
 时间戳版本
-/**
 function throttle(fn, delay=500) {
  let last = 0
  return function(...args) {
