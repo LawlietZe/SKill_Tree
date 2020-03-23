@@ -10,10 +10,11 @@ debounce应用场景：Input连续输入
 var debounce = function(fn, delay) {
  let time = null;
  return function(...args) {
-    let that = this;
+    // let that = this, setTimeout 时候会丢失this 因此在这里绑定，也可以用尖头函数代替
+    // ...args 是把函数参数转化成args数组
     time && clearTimeout(time)
     time = setTimeout(()=> {
-        fn.apply(that, args)
+        fn.apply(this, args)
     },delay)
   }
 }
