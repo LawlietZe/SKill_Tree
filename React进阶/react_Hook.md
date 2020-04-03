@@ -1,4 +1,3 @@
-待更新 [hooks](https://reactjs.org/docs/hooks-intro.html)
 [React Hook的实现原理和最佳实践](https://zhuanlan.zhihu.com/p/75146261)
 ### Hooks 模拟生命周期  
 1. constructor: 函数式组件不需要构造函数，可以通过useState初始化state.
