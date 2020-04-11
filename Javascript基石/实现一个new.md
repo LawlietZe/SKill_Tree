@@ -1,4 +1,4 @@
-解析请看 (JavaScript深入之new的模拟实现 #13)[https://github.com/mqyqingfeng/Blog/issues/13#issue-226166710]
+解析请看 [JavaScript深入之new的模拟实现 #13](https://github.com/mqyqingfeng/Blog/issues/13#issue-226166710)
 
 ```js
 
